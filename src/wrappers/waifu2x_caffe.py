@@ -14,7 +14,7 @@ for waifu2x-caffe.
 import argparse
 import os
 import pathlib
-import shlex
+from . import xshlex
 import subprocess
 import threading
 
@@ -105,6 +105,6 @@ class WrapperMain:
 
         # return the Popen object of the new process created
         self.print_lock.acquire()
-        Avalon.debug_info(f'[upscaler] Subprocess {os.getpid()} executing: {shlex.join(execute)}')
+        Avalon.debug_info(f'[upscaler] Subprocess {os.getpid()} executing: {xshlex.join(execute)}')
         self.print_lock.release()
         return subprocess.Popen(execute)

@@ -7,7 +7,7 @@
 # Items commented out are parameters irrelevant to this context
 #   or parameters handled by Video2X internally.
 waifu2x_caffe:
-  path: '%LOCALAPPDATA%\video2x\waifu2x-caffe\waifu2x-caffe-cui'
+  path: '/content/waifu2x-caffe/bin/waifu2x-caffe'
   tta: 0 # <0|1> 8x slower and slightly high quality
   gpu: 0 # gpu device no
   batch_size: 1 # input batch size
@@ -16,7 +16,7 @@ waifu2x_caffe:
   crop_size: 128 # input image split size
   output_depth: 8 # output image chanel depth bit
   output_quality: -1 # output image quality
-  process: gpu # <cpu|gpu|cudnn> process mode
+  process: cudnn # <cpu|gpu|cudnn> process mode
   model_dir: null # path to custom model directory (don't append last / )
   scale_height: 0 # custom scale height (specifying this will overwrite scale_ratio)
   scale_width: 0 # custom scale width (specifying this will overwrite scale_ratio)
@@ -117,7 +117,7 @@ anime4kcpp:
   webVideo: null # process the video from URL
   alpha: false # preserve the Alpha channel for transparent image
 ffmpeg:
-  ffmpeg_path: '%LOCALAPPDATA%\video2x\ffmpeg-latest-win64-static\bin'
+  ffmpeg_path: '/usr/bin'
   intermediate_file_name: 'intermediate.mkv'
   # Step 1: Frame Extraction
   # extract all frames from original input into temporary directory

@@ -12,7 +12,7 @@ Description: This class handles all FFmpeg related operations.
 # built-in imports
 import json
 import pathlib
-import shlex
+from . import xshlex
 import subprocess
 
 # third-party imports
@@ -58,7 +58,7 @@ class Ffmpeg:
         # turn elements into str
         execute = [str(e) for e in execute]
 
-        Avalon.debug_info(f'Executing: {shlex.join(execute)}')
+        Avalon.debug_info(f'Executing: {xshlex.join(execute)}')
 
         # initialize dictionary to store pixel formats
         pixel_formats = {}
@@ -105,7 +105,7 @@ class Ffmpeg:
         # turn elements into str
         execute = [str(e) for e in execute]
 
-        Avalon.debug_info(f'Executing: {shlex.join(execute)}')
+        Avalon.debug_info(f'Executing: {xshlex.join(execute)}')
         json_str = subprocess.run(execute, check=True, stdout=subprocess.PIPE).stdout
         return json.loads(json_str.decode('utf-8'))
 
@@ -283,5 +283,5 @@ class Ffmpeg:
     def _execute(self, execute):
         # turn all list elements into string to avoid errors
         execute = [str(e) for e in execute]
-        Avalon.debug_info(f'Executing: {shlex.join(execute)}')
+        Avalon.debug_info(f'Executing: {xshlex.join(execute)}')
         return subprocess.Popen(execute)
